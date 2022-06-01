@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Todoos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-  <div class="wrapper">
-    <div class="container">
-      <h1>Todoos</h1>
-      <div class="input-container">
-        <input type="text" placeholder="e.g Angular">
-        <select name="status" id="status">
-          <option value="all">All</option>
-          <option value="active">Active</option>
-          <option value="completed">Completed</option>
-      </select>    
-      </div>
-      <div class="todos-container">
-        <div class="todo">
-          <p>Honolulu</p>
-          <button>Complete</button>
-          <button>Delete</button>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <h2>Todoos</h2>
+        <div class="input-container">
+          <div class="todo-input">
+            <input type="text" placeholder="e.g Angular" />
+            <span class="plus-icon">
+              <i class="fa-solid fa-square-plus"></i>
+            </span>
+          </div>
+          <select name="status" id="status">
+            <option value="all">All</option>
+            <option value="active">Active</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+        <div class="todos-container">
+          <div class="todo">
+            <p>Honolulu</p>
+            <button class="complete"><i class="fa-solid fa-check"></i></button>
+            <button class="delete"><i class="fa-solid fa-trash"></i></button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/emmet/2.3.6/emmet.cjs.js"></script>
-<script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>

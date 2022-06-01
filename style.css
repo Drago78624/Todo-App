@@ -1,17 +1,140 @@
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-    text-decoration: none;
-    list-style: none;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  text-decoration: none;
+  list-style: none;
 }
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .wrapper {
   min-height: 100vh;
   display: flex;
-  
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right bottom, #e7bf5a, #a96b54);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+  font-size: 4rem;
+  letter-spacing: 3px;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.input-container {
+  display: flex;
+  margin-bottom: 3rem;
+}
+
+.todo-input {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+input {
+  width: 350px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: none;
+  padding: 0.5em;
+  outline: none;
+}
+
+.plus-icon {
+  font-size: 1.6rem;
+  padding-right: 0.5rem;
+  color: #ff7744;
+  transition: all 200ms;
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  -ms-transition: all 200ms;
+  -o-transition: all 200ms;
+  cursor: pointer;
+}
+
+.plus-icon:hover {
+  color: #a54d2d;
+}
+
+select {
+  border: none;
+  outline: none;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  transition: all 200ms;
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  -ms-transition: all 200ms;
+  -o-transition: all 200ms;
+  cursor: pointer;
+}
+
+.todo:hover {
+  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  -o-transform: scale(1.02);
+}
+
+.todo p {
+  width: 500px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  background-color: white;
+}
+
+button {
+  border: none;
+  padding: 1rem;
+  font-size: 1.2rem;
+  transition: all 200ms;
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  -ms-transition: all 200ms;
+  -o-transition: all 200ms;
+  cursor: pointer;
+}
+
+.complete {
+  background-color: #41b749;
+  color: white;
+}
+
+.complete:hover {
+  background-color: #29722e;
+}
+
+.delete {
+  background-color: #ff7744;
+  color: white;
+}
+
+.delete:hover {
+  background-color: #a54d2d;
 }
