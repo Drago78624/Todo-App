@@ -75,6 +75,38 @@ input {
   color: #a54d2d;
 }
 
+.todo-filter {
+  display: flex;
+  position: relative;
+}
+
+.todo-filter p {
+  min-width: 100px;
+  padding: 1rem;
+  font-size: 1.2rem;
+  background-color: white;
+}
+
+.todo-filter-dropdown {
+  position: absolute;
+  background-color: white;
+  font-size: 1.2rem;
+  width: 100%;
+  top: 55px;
+  z-index: 2;
+  line-height: 2;
+  display: none;
+}
+
+.option {
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.option:hover {
+  background-color: lightgray;
+}
+
 select {
   border: none;
   outline: none;
@@ -107,10 +139,9 @@ select {
   font-size: 1.2rem;
   background-color: white;
   position: relative;
-  text-decoration: line-through;
 }
 
-.todo p::after {
+.todo .completed::after {
   content: "";
   display: block;
   position: absolute;
@@ -143,11 +174,15 @@ button {
   background-color: #29722e;
 }
 
-.delete {
+.delete, .dropdown-btn {
   background-color: #ff7744;
   color: white;
 }
 
-.delete:hover {
+.delete:hover, .dropdown-btn:hover {
   background-color: #a54d2d;
+}
+
+.show {
+  display: block;
 }
