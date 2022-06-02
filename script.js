@@ -10,33 +10,6 @@ const options = document.querySelectorAll(".option");
 const todos = document.querySelectorAll(".todo");
 const filterBtn = document.querySelector(".dropdown-btn")
 
-setInterval(() => {
-  const todos = document.querySelectorAll(".todo");
-  if (filter.innerText == "Active") {
-    for (todo of todos) {
-      if (!todo.classList.contains("active")) {
-        todo.style.display = "none"
-      }else {
-        todo.style.display = "flex"
-      }
-    }
-  }else if (filter.innerText == "Completed") {
-    for (todo of todos) {
-      if (!todo.classList.contains("completed")) {
-        todo.style.display = "none"
-      }else {
-        todo.style.display = "flex"
-      }
-    }
-  }else {
-    for (todo of todos) {
-      todo.style.display = "flex"
-    }
-  }
-}, 100)
-
-const todosArr = [];
-
 plusIcon.addEventListener("click", () => {
   if (input.value.trim() != "") {
     let inputValue = input.value;
@@ -82,5 +55,27 @@ options.forEach(option => {
   option.addEventListener("click", (e) => {
     filter.innerText = e.target.innerText
     dropdown.classList.remove("show")
+    const todos = document.querySelectorAll(".todo");
+    if (filter.innerText == "Active") {
+      for (todo of todos) {
+        if (!todo.classList.contains("active")) {
+          todo.style.display = "none"
+        } else {
+          todo.style.display = "flex"
+        }
+      }
+    } else if (filter.innerText == "Completed") {
+      for (todo of todos) {
+        if (!todo.classList.contains("completed")) {
+          todo.style.display = "none"
+        } else {
+          todo.style.display = "flex"
+        }
+      }
+    } else {
+      for (todo of todos) {
+        todo.style.display = "flex"
+      }
+    }
   })
 })
