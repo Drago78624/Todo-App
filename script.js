@@ -7,15 +7,41 @@ const filter = document.querySelector(".filter");
 const completeBtn = document.querySelectorAll(".complete");
 const deleteBtns = document.querySelectorAll(".delete");
 const options = document.querySelectorAll(".option");
+const todos = document.querySelectorAll(".todo");
+const filterBtn = document.querySelector(".dropdown-btn")
 
-const todos = [];
+setInterval(() => {
+  const todos = document.querySelectorAll(".todo");
+  if (filter.innerText == "Active") {
+    for (todo of todos) {
+      if (!todo.classList.contains("active")) {
+        todo.style.display = "none"
+      }else {
+        todo.style.display = "flex"
+      }
+    }
+  }else if (filter.innerText == "Completed") {
+    for (todo of todos) {
+      if (!todo.classList.contains("completed")) {
+        todo.style.display = "none"
+      }else {
+        todo.style.display = "flex"
+      }
+    }
+  }else {
+    for (todo of todos) {
+      todo.style.display = "flex"
+    }
+  }
+}, 100)
+
+const todosArr = [];
 
 plusIcon.addEventListener("click", () => {
-  if (input.value != "") {
+  if (input.value.trim() != "") {
     let inputValue = input.value;
-    console.log(inputValue);
     let html = `
-                  <div class="todo">
+                  <div class="todo all active">
                   <p>${inputValue}</p>
                   <button class="complete"><i class="fa-solid fa-check"></i></button>
                   <button class="delete"><i class="fa-solid fa-trash"></i></button>
@@ -23,7 +49,7 @@ plusIcon.addEventListener("click", () => {
           `;
     todosContainer.insertAdjacentHTML("beforeend", html);
     input.value = "";
-    
+
   }
 });
 
@@ -33,30 +59,28 @@ todosContainer.addEventListener("click", (e) => {
   } else if (e.target.classList.contains("fa-trash")) {
     e.target.parentElement.parentElement.remove();
   } else if (e.target.classList.contains("complete")) {
-    console.log(e.target.previousElementSibling);
     e.target.previousElementSibling.style.textDecoration = "line-through";
-    e.target.previousElementSibling.classList.add("completed")
+    e.target.previousElementSibling.classList.add("done")
     e.target.disabled = true
-    
-    
+    e.target.parentElement.classList.remove("active")
+    e.target.parentElement.classList.add("completed")
   } else if (e.target.classList.contains("fa-check")) {
     e.target.parentElement.previousElementSibling.style.textDecoration =
       "line-through";
-    e.target.parentElement.previousElementSibling.classList.add("completed")
+    e.target.parentElement.previousElementSibling.classList.add("done")
     e.target.disabled = true
-    
+    e.target.parentElement.parentElement.classList.remove("active")
+    e.target.parentElement.parentElement.classList.add("completed")
   }
 });
 
-dropdownBtn.addEventListener("click", ()=>{
+dropdownBtn.addEventListener("click", () => {
   dropdown.classList.toggle("show")
 })
 
 options.forEach(option => {
   option.addEventListener("click", (e) => {
-    console.log(e.target.innerText)
     filter.innerText = e.target.innerText
-  dropdown.classList.remove("show")
-    
+    dropdown.classList.remove("show")
   })
 })

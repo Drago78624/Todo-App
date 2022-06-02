@@ -141,7 +141,7 @@ select {
   position: relative;
 }
 
-.todo .completed::after {
+.todo .done::after {
   content: "";
   display: block;
   position: absolute;
